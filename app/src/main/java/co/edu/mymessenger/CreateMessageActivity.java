@@ -15,16 +15,11 @@ public class CreateMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_message);
     }
 
-    // 👇 ESTE MÉTODO VA FUERA DEL onCreate
     public void sendMessage(View view) {
         EditText input = findViewById(R.id.message_input);
-        String message = "Cliente: " + input.getText().toString();
+        String message = input.getText().toString();
 
-        Intent intent = new Intent(
-                CreateMessageActivity.this,
-                ReceiveMessageActivity.class
-        );
-
+        Intent intent = new Intent(this, ReceiveMessageActivity.class);
         intent.putExtra("CHAT_MESSAGE", message);
         startActivity(intent);
     }
